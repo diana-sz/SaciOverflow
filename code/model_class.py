@@ -62,8 +62,8 @@ class Model:
 
     def reset_bounds(self):
         """
-        reset all bounds in the model do defaults (0, 1000) for irreversible,
-        (-1000, 1000) for reversible reactions
+        Reset all bounds in the model do defaults (0, 1000) for irreversible,
+        (-1000, 1000) for reversible reactions.
         """
         for rxn in self.model.reactions:
             rxn.upper_bound = 1000
@@ -71,9 +71,8 @@ class Model:
 
     def identify_exchanges(self):
         """
-        identify exchange reactions -- reactions that have no reactants or
-        products
-
+        Identify exchange reactions -- reactions that have no reactants or
+        products.
         Returns:
             list of exchange reaction IDs
         """
@@ -86,7 +85,7 @@ class Model:
 
     def identify_transports(self, reaction_ids):
         """
-        Identify transport reactions based on their names
+        Identify transport reactions based on their names.
         Arguments:
             reaction_ids: a dictionary of reaction ID: reaction name
         Returns:
@@ -101,7 +100,9 @@ class Model:
         return transports
 
     def make_transporters_reversible(self, reaction_ids):
-        """make all transporters in the model reversible"""
+        """
+        Make all transporters in the model reversible.
+        """
         transports = self.identify_transports(reaction_ids)
         for transport_id in transports:
             self.set_lower_bound(transport_id, -1000)
@@ -109,7 +110,7 @@ class Model:
 
     def print_reaction_with_names(self, reaction_id, metabolite_ids, reaction_ids):
         """
-        print reaction string with metabolite names
+        Print reaction string with metabolite names.
         Arguments:
             reaction_id: ID of reaction to be printed
             metabolite_ids: dictionary of metabolite ID: metabolite name
@@ -133,6 +134,8 @@ class Model:
 
     def set_rates(self, rates_mean, rates_sd, mode="mean"):
         """
+        Set the lower and upper bounds of reactions according to the provided
+        data and the chosen mode.
         Arguments:
             rates_mean: data frame with reaction rates
             rates_mean: data frame with rate SDs
@@ -163,7 +166,15 @@ class Model:
             self.set_upper_bound(rxn_id, ub)
 
     def run_pfba_sampled(self, n_feasible, fluxes, growth_rates):
-        """run pFBA and add results to existing objects"""
+        """
+        Run pFBA and add results to existing objects
+        Arguments:
+            n_feasible: integer with the number of feasible solutions so far
+            fluxes: list of solution objects from pFBA
+            growth rates: list of growth rates
+        Returns:
+            a tuple of updated n_feasible, fluxes and growth rates
+        """
         mu = self.model.slim_optimize()
         if mu == mu:
             n_feasible += 1
@@ -175,7 +186,7 @@ class Model:
 
 
 def get_central_fluxes(central_metabolism, fba_solution):
-    """returns a list of fluxes of central metabolism
+    """returns a list of fluxes for reactions in 'central_metabolism'
     Arguments:
         central_metabolism: data_frame with reaction IDs that we are interested in.
             If one reaction is mapped to several IDs, they are
