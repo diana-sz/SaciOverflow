@@ -1,5 +1,5 @@
 # pFBA simulations of Sulfolobus acidocaldarius
-Code and results from pFBA simulations with Sulfolobus solfataricus GSMM constrained with data from Sulfolobus acidocaldarius from three experimental conditions: Low Cell Density, High Cell Density and Overfeeding.
+Code and results from pFBA simulations with Sulfolobus solfataricus (Sso) GSMM constrained with data from Sulfolobus acidocaldarius from three experimental conditions: Low Cell Density, High Cell Density and Overfeeding.
 
 ## Folder structure
 * code

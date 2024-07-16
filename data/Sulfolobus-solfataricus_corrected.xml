@@ -135,7 +135,7 @@
       <species id="M_117" name="M_117" compartment="extracellular" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="M_118" name="M_118" compartment="extracellular" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="M_119" name="M_119" compartment="cytosol" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
-      <species id="M_120" name="M_120" compartment="extracellular" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="M_120" name="GLUex" compartment="extracellular" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="M_121" name="M_121" compartment="extracellular" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="M_122" name="M_122" compartment="extracellular" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
       <species id="M_123" name="M_123" compartment="extracellular" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
